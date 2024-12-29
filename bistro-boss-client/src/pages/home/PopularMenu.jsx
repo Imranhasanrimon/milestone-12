@@ -12,7 +12,6 @@ const PopularMenu = () => {
                 setItems(popularItems)
             })
     }, [])
-    console.log(items);
     return (
         <section className="mb-8">
             <SectionTitle heading={'From Our menu'} subHeading={'Popular Items'}></SectionTitle>
