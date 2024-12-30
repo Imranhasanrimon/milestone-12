@@ -6,8 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
 
 const Review = () => {
     const [review, setReview] = useState([]);
@@ -18,14 +20,14 @@ const Review = () => {
     }, []);
 
     return (
-        <section>
+        <section className="my-10">
             <SectionTitle subHeading={'What Our Client Say'} heading={'testimonials'}></SectionTitle>
             <Swiper
+                spaceBetween={30}
                 pagination={{
-                    type: 'fraction',
+                    clickable: true,
                 }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
+                modules={[Pagination]}
                 className="mySwiper"
             >
                 <SwiperSlide>Slide 1</SwiperSlide>
