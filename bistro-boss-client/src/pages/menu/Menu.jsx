@@ -20,9 +20,9 @@ const Menu = () => {
                 <title>Bistro Boss | Menu</title>
             </Helmet>
 
-            <MenuCategory title={'offered'} img={ourMenuImg} items={offeredItems} heading={`today's offer`}></MenuCategory>
+            <MenuCategory title={'drinks'} img={ourMenuImg} items={offeredItems} heading={`today's offer`}></MenuCategory>
 
-            <MenuCategory title={'Desserts'} img={dessertImg} items={dessertItems}></MenuCategory>
+            <MenuCategory title={'dessert'} img={dessertImg} items={dessertItems}></MenuCategory>
 
             <MenuCategory title={'pizza'} img={pizzaImg} items={pizzaItems}></MenuCategory>
 
