@@ -2,17 +2,16 @@ import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 
-// import required modules
-import { Pagination } from 'swiper/modules';
 
 const Review = () => {
-    const [review, setReview] = useState([]);
+    const [reviews, setReview] = useState([]);
     useEffect(() => {
         fetch('/reviews.json')
             .then(res => res.json())
@@ -22,23 +21,18 @@ const Review = () => {
     return (
         <section className="my-10">
             <SectionTitle subHeading={'What Our Client Say'} heading={'testimonials'}></SectionTitle>
-            <Swiper
-                spaceBetween={30}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+
+                {
+                    reviews.map(review => <SwiperSlide key={review._id}>
+                        <div className="px-20 text-center">
+                            <img className="mx-auto" src="https://img.icons8.com/?size=100&id=38968&format=png&color=000000" alt="" />
+                            <p>{review.details}</p>
+                            <h3 className=" text-3xl text-orange-500">{review.name}</h3>
+                        </div>
+                    </SwiperSlide>)
+                }
+
             </Swiper>
 
         </section>

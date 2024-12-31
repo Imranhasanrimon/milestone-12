@@ -5,9 +5,17 @@ import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
 import useMenu from "../../hooks/useMenu";
 import OrderTab from "./OrderTab";
+import { useParams } from "react-router-dom"
 
 const Order = () => {
-    const [tabIndex, setTabIndex] = useState(0)
+    const titles = ["salad",
+        "pizza",
+        "soup",
+        "dessert",
+        "drinks",]
+    const { title } = useParams();
+    const initialTab = titles.indexOf(title);
+    const [tabIndex, setTabIndex] = useState(initialTab)
     const [items] = useMenu();
     const offeredItems = items.filter(item => item.category === 'offered');
     const dessertItems = items.filter(item => item.category === 'dessert');
