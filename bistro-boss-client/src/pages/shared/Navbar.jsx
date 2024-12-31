@@ -5,6 +5,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/menu">Menu</NavLink></li>
         <li><NavLink to="/order/salad">Order</NavLink></li>
+        <li><NavLink to="/login">Login</NavLink></li>
     </>
     return (
         <div className="navbar sticky top-0 z-10  bg-base-100">
