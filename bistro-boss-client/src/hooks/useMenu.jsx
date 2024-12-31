@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useMenu = () => {
     const [items, setItems] = useState([])
     useEffect(() => {
-        fetch('/menu.json')
+        fetch('http://localhost:5000/menu')
             .then(res => res.json())
             .then(data => {
                 setItems(data)
