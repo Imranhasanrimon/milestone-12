@@ -1,7 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+    const { name } = useContext(AuthContext)
+    console.log(name);
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true)
     const handleSubmit = e => {
