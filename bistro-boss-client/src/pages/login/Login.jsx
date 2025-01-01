@@ -3,8 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { name } = useContext(AuthContext)
-    console.log(name);
+    const { user } = useContext(AuthContext)
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true)
     const handleSubmit = e => {
