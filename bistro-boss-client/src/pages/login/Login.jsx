@@ -1,7 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const { user, signInUser } = useContext(AuthContext)
@@ -17,6 +18,12 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    title: 'Successful!',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                })
                 navigate('/')
             })
     }
