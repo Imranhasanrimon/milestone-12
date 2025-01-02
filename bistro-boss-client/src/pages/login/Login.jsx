@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const Login = () => {
@@ -9,6 +9,9 @@ const Login = () => {
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true)
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    console.log(from);
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -24,7 +27,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'Okay'
                 })
-                navigate('/')
+                navigate(from, { replace: true })
             })
     }
 

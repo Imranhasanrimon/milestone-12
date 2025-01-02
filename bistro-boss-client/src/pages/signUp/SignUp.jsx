@@ -7,10 +7,17 @@ const SignUp = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile, } = useContext(AuthContext);
     const onSubmit = (data) => {
+        console.log(data);
         createUser(data.email, data.password)
-            .then(result => console.log(result.user))
+            .then(result => {
+                console.log(result.user)
+                updateUserProfile(data.name, data.photoURL)
+                    .then(
+                        console.log('profile update is done')
+                    )
+            })
     }
     return (
         <div className="hero  min-h-screen">
@@ -29,6 +36,12 @@ const SignUp = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input {...register('name')} type="text" placeholder="name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo-URL</span>
+                            </label>
+                            <input {...register('photoURL')} type="text" placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
