@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { BsCartFill } from "react-icons/bs";
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -45,7 +46,11 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
+                <button className="btn">
+                    <BsCartFill />
+                    <div className="badge badge-secondary">+0</div>
+                </button>
                 <a className="btn">Button</a>
             </div>
         </div>
