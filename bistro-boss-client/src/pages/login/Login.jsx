@@ -11,7 +11,6 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-    console.log(from);
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -82,7 +81,8 @@ const Login = () => {
                             <button type='button' onClick={handleValidateCaptcha} className="btn btn-outline btn-primary btn-xs mt-2">Validate Captcha</button>
                         </div>
                         <div className="form-control mt-6">
-                            <button disabled={disabled} className="btn btn-primary">Login</button>
+                            {/* todo: disabled the recaptcha */}
+                            <button disabled={false} className="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>
