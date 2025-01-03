@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import Swal from 'sweetalert2'
 import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import useCart from "../hooks/useCart";
 
 
 const FoodCard = ({ item }) => {
@@ -11,6 +12,7 @@ const FoodCard = ({ item }) => {
     const navigate = useNavigate()
     const location = useLocation()
     const axiosSecure = useAxiosSecure()
+    const [, refetch] = useCart()
     const handleAddToCart = (food) => {
         if (user && user.email) {
             const cartItem = {
@@ -22,7 +24,6 @@ const FoodCard = ({ item }) => {
             }
             axiosSecure.post('/carts', cartItem)
                 .then(data => {
-                    console.log(data.data);
                     if (data.data.insertedId) {
                         Swal.fire({
                             title: "Item added to the cart!",
@@ -30,7 +31,8 @@ const FoodCard = ({ item }) => {
                             draggable: true
                         });
                     }
-                })
+                });
+            refetch()
         } else {
             Swal.fire({
                 title: "You are not logged in!",
