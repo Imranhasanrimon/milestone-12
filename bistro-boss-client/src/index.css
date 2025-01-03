@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dashboard .active{
+    background-color: rgba(255, 196, 0, 0.699);
+}
