@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { BsCartFill } from "react-icons/bs";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
+    const [cart] = useCart();
+
     const handleLogout = () => {
         signOutUser()
             .then(() => console.log('sign out done'))
@@ -49,7 +52,7 @@ const Navbar = () => {
             <div className="navbar-end gap-2">
                 <button className="btn">
                     <BsCartFill />
-                    <div className="badge badge-secondary">+0</div>
+                    <div className="badge badge-secondary">+{cart.length}</div>
                 </button>
                 <a className="btn">Button</a>
             </div>
