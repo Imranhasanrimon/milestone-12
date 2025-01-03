@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { BsCartFill } from "react-icons/bs";
 import useCart from "../../hooks/useCart";
@@ -50,10 +50,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <button className="btn">
+                <Link to='dashboard/cart' className="btn">
                     <BsCartFill />
                     <div className="badge badge-secondary">+{cart.length}</div>
-                </button>
+                </Link>
                 <a className="btn">Button</a>
             </div>
         </div>
