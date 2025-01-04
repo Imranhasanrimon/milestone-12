@@ -10,7 +10,7 @@ const Dashboard = () => {
                 <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/addReview'>Add a Review</NavLink>
                 <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/myBookings'>My Bookings</NavLink>
             </div>
-            <div>
+            <div className="m-5 flex-1">
                 <Outlet></Outlet>
             </div>
 
