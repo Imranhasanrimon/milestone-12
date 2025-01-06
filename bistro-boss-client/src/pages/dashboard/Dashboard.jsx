@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     // TODO: isAdmin value should be loaded form database;
-    const isAdmin = false;
+    const isAdmin = true;
 
     return (
         <div className="flex dashboard max-w-screen-2xl w-11/12 mx-auto my-10">
