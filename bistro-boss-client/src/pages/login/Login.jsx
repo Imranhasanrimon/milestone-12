@@ -3,6 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../providers/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import SocialLogin from '../shared/SocialLogin';
 
 const Login = () => {
     const { user, signInUser } = useContext(AuthContext)
@@ -84,6 +85,7 @@ const Login = () => {
                             {/* todo: disabled the recaptcha */}
                             <button disabled={false} className="btn btn-primary">Login</button>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>
