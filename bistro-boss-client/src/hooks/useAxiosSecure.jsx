@@ -8,5 +8,3 @@ const useAxiosSecure = () => {
 };
 
 export default useAxiosSecure;
-//module 68 is still undone
-//STARTING MODULE 69

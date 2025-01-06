@@ -1,22 +1,39 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
+import Swal from 'sweetalert2'
 import { AuthContext } from "../../providers/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const SignUp = () => {
     const {
         register,
+        reset,
         handleSubmit,
         formState: { errors },
     } = useForm();
     const { createUser, updateUserProfile, } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     const onSubmit = (data) => {
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
-                console.log(result.user)
                 updateUserProfile(data.name, data.photoURL)
-                    .then(
-                        console.log('profile update is done')
-                    )
+                    .then(() => {
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then((res) => {
+                                if (res.data.insertedId) {
+                                    reset()
+                                    Swal.fire({
+                                        title: "User created successfully!",
+                                        icon: "success",
+                                        draggable: true
+                                    })
+                                }
+
+                            })
+                    })
             })
     }
     return (
