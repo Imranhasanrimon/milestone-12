@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../shared/SocialLogin";
 const SignUp = () => {
     const {
         register,
@@ -78,6 +79,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>
@@ -86,5 +88,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-//module 66 is not finished yet
-//today is happy new year 2025
