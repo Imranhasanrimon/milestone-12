@@ -5,7 +5,6 @@ import useAxiosPublic from './../hooks/useAxiosPublic';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
-
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
