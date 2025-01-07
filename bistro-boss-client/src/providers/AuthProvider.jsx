@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unsubscribe()
         }
-    }, [])
+    }, [axiosPublic])
 
     const updateUserProfile = (name, photo) => {
         return updateProfile(auth.currentUser, {
