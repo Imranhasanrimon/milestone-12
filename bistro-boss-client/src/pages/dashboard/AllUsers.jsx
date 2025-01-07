@@ -15,6 +15,31 @@ const AllUsers = () => {
         }
     });
 
+    const handleMakeAdmin = (user) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "He will be admin!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, make him admin!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${user._id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Success",
+                                text: `${user.name} has been Admin.`,
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
     const handleDelete = (user) => {
         Swal.fire({
             title: "Are you sure?",
@@ -28,12 +53,11 @@ const AllUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
-                        console.log(res.data.deletedCount);
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your user has been deleted.",
+                                text: `${user.name} has been deleted.`,
                                 icon: "success"
                             });
                         }
@@ -65,7 +89,7 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td><FaUsers className="text-3xl" /></td>
+                                <td>{user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-warning "><FaUsers className="text-2xl" /></button>}</td>
                                 <td><MdDelete onClick={() => handleDelete(user)} className="text-3xl text-red-500 cursor-pointer" /></td>
                             </tr>)
                         }
