@@ -11,6 +11,7 @@ import SignUp from "../pages/signUp/SignUp";
 import AllUsers from "../pages/dashboard/AllUsers";
 import AddItem from "../pages/dashboard/AddItem";
 import AdminRoute from "./AdminRoute";
+import ManageItem from "../pages/dashboard/ManageItem";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
             {
                 path: 'addItem',
                 element: <AdminRoute><AddItem></AddItem></AdminRoute>
+            },
+            {
+                path: 'manageItem',
+                element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
             },
         ]
     }

@@ -12,7 +12,7 @@ const Dashboard = () => {
                     isAdmin ? <>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/home'>Admin Home</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/addItem'>Add Items</NavLink>
-                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Manage Items</NavLink>
+                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/manageItem'>Manage Items</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Manage Bookings</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/allUsers'>All Users</NavLink>
                     </>
