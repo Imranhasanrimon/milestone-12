@@ -3,7 +3,7 @@ import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
     // TODO: isAdmin value should be loaded form database;
-    const isAdmin = useAdmin();
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="flex dashboard max-w-screen-2xl w-11/12 mx-auto my-10">
@@ -11,7 +11,7 @@ const Dashboard = () => {
                 {
                     isAdmin ? <>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/home'>Admin Home</NavLink>
-                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Add Items</NavLink>
+                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/addItem'>Add Items</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Manage Items</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Manage Bookings</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/allUsers'>All Users</NavLink>
