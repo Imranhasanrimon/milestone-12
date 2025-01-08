@@ -1,8 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
     // TODO: isAdmin value should be loaded form database;
-    const isAdmin = true;
+    const isAdmin = useAdmin();
 
     return (
         <div className="flex dashboard max-w-screen-2xl w-11/12 mx-auto my-10">

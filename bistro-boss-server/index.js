@@ -23,6 +23,8 @@ const verifyToken = (req, res, next) => {
 }
 
 
+
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@cluster0.7hbnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -53,6 +55,17 @@ async function run() {
             res.send({ token })
         })
 
+        const verifyAdmin = async (req, res, next) => {
+            const email = req.decoded.email;
+            const query = { email: email };
+            const user = await userCollection.findOne(query);
+            const isAdmin = user?.role === 'admin';
+            if (!isAdmin) {
+                return res.status(403).send({ message: 'forbidden access' });
+            };
+            next();
+        }
+
         //app related api
         app.get('/menu', async (req, res) => {
             const result = await menuCollection.find().toArray();
@@ -67,7 +80,7 @@ async function run() {
             const result = await cartCollection.find(query).toArray();
             res.send(result);
         })
-        app.get('/users', verifyToken, async (req, res) => {
+        app.get('/users', verifyToken, verifyAdmin, async (req, res) => {
             const result = await userCollection.find().toArray();
             res.send(result);
         })
