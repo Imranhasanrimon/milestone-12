@@ -5,6 +5,9 @@ import { MdEditSquare, MdDelete } from "react-icons/md";
 
 const ManageItem = () => {
     const [menu] = useMenu();
+    const handleDeleteItem = () => {
+
+    }
     return (
         <div>
             <SectionTitle heading={'manage all items'} subHeading={'Hurry up'}></SectionTitle>
@@ -37,14 +40,14 @@ const ManageItem = () => {
                                 <td>{item.name}</td>
                                 <td>$ {item.price}</td>
                                 <th><button className='btn btn-primary'><MdEditSquare /></button> </th>
-                                <th><button className='btn btn-error'><MdDelete /></button> </th>
+                                <th><button className='btn btn-error' onClick={() => handleDeleteItem(item)}><MdDelete /></button> </th>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 
