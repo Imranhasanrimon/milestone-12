@@ -71,6 +71,11 @@ async function run() {
             const result = await menuCollection.find().toArray();
             res.send(result);
         })
+        app.get('/menu/:id', async (req, res) => {
+            const id = req.params.id
+            const result = await menuCollection.findOne({ _id: new ObjectId(id) })
+            res.send(result);
+        })
         app.get('/reviews', async (req, res) => {
             const result = await reviewCollection.find().toArray();
             res.send(result);

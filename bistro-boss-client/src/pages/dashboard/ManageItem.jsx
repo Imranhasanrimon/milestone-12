@@ -4,6 +4,7 @@ import useMenu from '../../hooks/useMenu';
 import { MdEditSquare, MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2'
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 const ManageItem = () => {
     const [menu, loading, refetch] = useMenu();
@@ -68,7 +69,9 @@ const ManageItem = () => {
                                 </td>
                                 <td>{item.name}</td>
                                 <td>$ {item.price}</td>
-                                <th><button className='btn btn-primary'><MdEditSquare /></button> </th>
+
+                                <th><Link to={`/dashboard/updateItem/${item._id}`} className='btn btn-primary'><MdEditSquare /></Link> </th>
+
                                 <th><button className='btn btn-error' onClick={() => handleDeleteItem(item)}><MdDelete /></button> </th>
                             </tr>)
                         }
