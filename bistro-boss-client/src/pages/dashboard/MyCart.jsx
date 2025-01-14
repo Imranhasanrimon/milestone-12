@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -39,7 +40,9 @@ const MyCart = () => {
             <div className="flex items-center justify-between">
                 <h2 className="text-4xl">Items: {cart.length}</h2>
                 <h2 className="text-4xl">Total Price: {totalPrice}</h2>
-                <button className="btn btn-primary">PAY</button>
+                {
+                    cart.length ? <button className="btn btn-primary">PAY</button> : <Link to='/menu' className="btn btn-primary">PAY</Link>
+                }
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
