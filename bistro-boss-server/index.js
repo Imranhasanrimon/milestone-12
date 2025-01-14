@@ -73,7 +73,8 @@ async function run() {
         })
         app.get('/menu/:id', async (req, res) => {
             const id = req.params.id
-            const result = await menuCollection.findOne({ _id: new ObjectId(id) })
+            const query = { _id: new ObjectId(id) }
+            const result = await menuCollection.findOne(query)
             res.send(result);
         })
         app.get('/reviews', async (req, res) => {
@@ -125,6 +126,10 @@ async function run() {
             }
             const result = await userCollection.insertOne(user);
             res.send(result)
+        })
+
+        app.patch('/menu/:id', (req, res) => {
+
         })
 
         app.delete('/carts/:id', async (req, res) => {
