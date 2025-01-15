@@ -41,7 +41,7 @@ const MyCart = () => {
                 <h2 className="text-4xl">Items: {cart.length}</h2>
                 <h2 className="text-4xl">Total Price: {totalPrice}</h2>
                 {
-                    cart.length ? <button className="btn btn-primary">PAY</button> : <Link to='/menu' className="btn btn-primary">PAY</Link>
+                    cart.length ? <Link to='/dashboard/payment' className="btn btn-primary">PAY</Link> : <Link to='/menu' className="btn btn-primary">Add to Cart</Link>
                 }
             </div>
             <div className="overflow-x-auto">
