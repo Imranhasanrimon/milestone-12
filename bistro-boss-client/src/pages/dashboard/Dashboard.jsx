@@ -20,7 +20,7 @@ const Dashboard = () => {
                         <>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/home'>User Home</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Reservation</NavLink>
-                            <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Payment History</NavLink>
+                            <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/paymentHistory'>Payment History</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/cart'>My Cart</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/addReview'>Add a Review</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/myBookings'>My Bookings</NavLink>

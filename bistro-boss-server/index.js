@@ -52,7 +52,7 @@ async function run() {
         //jwt related api
         app.post('/jwt', async (req, res) => {
             const user = req.body;
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '5h' })
             res.send({ token })
         })
 
@@ -89,6 +89,15 @@ async function run() {
         })
         app.get('/users', verifyToken, verifyAdmin, async (req, res) => {
             const result = await userCollection.find().toArray();
+            res.send(result);
+        })
+
+        app.get('/payments/:email', verifyToken, async (req, res) => {
+            const query = { email: req.params.email };
+            if (req.params.email !== req.decoded.email) {
+                return res.status(403).send({ message: 'forbidden access' })
+            }
+            const result = await paymentCollection.find(query).toArray();
             res.send(result);
         })
 

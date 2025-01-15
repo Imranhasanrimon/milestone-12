@@ -29,15 +29,17 @@ const CheckoutForm = () => {
         },
     };
     const axiosSecure = useAxiosSecure()
-    const [cart] = useCart();
+    const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, currentCart) => total + currentCart.price, 0);
 
     useEffect(() => {
-        axiosSecure.post('/create-payment-intent', { price: totalPrice })
-            .then(res => {
-                console.log(res.data.clientSecret);
-                setClientSecret(res.data.clientSecret)
-            })
+        if (totalPrice > 0) {
+            axiosSecure.post('/create-payment-intent', { price: totalPrice })
+                .then(res => {
+                    console.log(res.data.clientSecret);
+                    setClientSecret(res.data.clientSecret)
+                })
+        }
     }, [axiosSecure, totalPrice])
 
     const handleSubmit = async (e) => {
@@ -96,6 +98,7 @@ const CheckoutForm = () => {
                 }
                 const res = axiosSecure.post('/payments', payment)
                 console.log('payment saved', res);
+                refetch()
             }
         }
     }
