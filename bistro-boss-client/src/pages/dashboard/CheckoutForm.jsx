@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useCart from './../../hooks/useCart';
 import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -11,6 +12,7 @@ const CheckoutForm = () => {
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('')
     const { user } = useAuth();
+    const navigate = useNavigate();
     const cardStyle = {
         style: {
             base: {
@@ -98,7 +100,8 @@ const CheckoutForm = () => {
                 }
                 const res = axiosSecure.post('/payments', payment)
                 console.log('payment saved', res);
-                refetch()
+                refetch();
+                navigate('/dashboard/paymentHistory')
             }
         }
     }
