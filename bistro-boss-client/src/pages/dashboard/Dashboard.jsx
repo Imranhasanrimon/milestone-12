@@ -10,7 +10,7 @@ const Dashboard = () => {
             <div className="min-h-screen min-w-64 bg-yellow-600 border-r-2 border-white text-black flex flex-col gap-3 p-5">
                 {
                     isAdmin ? <>
-                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/home'>Admin Home</NavLink>
+                        <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/adminHome'>Admin Home</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/addItem'>Add Items</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/manageItem'>Manage Items</NavLink>
                         <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Manage Bookings</NavLink>
@@ -18,7 +18,7 @@ const Dashboard = () => {
                     </>
                         :
                         <>
-                            <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/home'>User Home</NavLink>
+                            <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/userHome'>User Home</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/reservation'>Reservation</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/paymentHistory'>Payment History</NavLink>
                             <NavLink className='bg-black bg-opacity-10 p-2 rounded-lg hover:bg-opacity-25 ' to='/dashboard/cart'>My Cart</NavLink>

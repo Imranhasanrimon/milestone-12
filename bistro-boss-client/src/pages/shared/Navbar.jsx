@@ -50,7 +50,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <Link to='dashboard/cart' className="btn">
+                <Link to='dashboard' className="btn">
                     <BsCartFill />
                     <div className="badge badge-secondary">+{cart.length}</div>
                 </Link>
