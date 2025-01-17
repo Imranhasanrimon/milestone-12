@@ -5,7 +5,7 @@ import { FaDollarSign } from "react-icons/fa";
 import { LuSquareMenu } from "react-icons/lu";
 import { GrDeliver } from "react-icons/gr";
 import { FaUsers } from "react-icons/fa";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Sector, ResponsiveContainer, Legend } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Legend } from 'recharts';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -21,7 +21,7 @@ const AdminHome = () => {
             return res.data
         }
     });
-    const { data: chartData } = useQuery({
+    const { data: chartData = [] } = useQuery({
         queryKey: ['order-stats'],
         queryFn: async () => {
             const res = await axiosSecure.get('/order-stats')
@@ -69,7 +69,7 @@ const AdminHome = () => {
                         <FaDollarSign className="text-3xl" />
                     </div>
                     <div className="stat-title">Revenues</div>
-                    <div className="stat-value">{stats?.revenue.toFixed(2)}</div>
+                    <div className="stat-value">{stats?.revenue?.toFixed(2)}</div>
                 </div>
 
                 <div className="stat">
