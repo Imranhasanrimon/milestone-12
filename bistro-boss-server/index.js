@@ -294,3 +294,14 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`boss is sitting on port: ${port}`);
 })
+
+
+/*run().catch(console.dir);
+
+app.get('/', (req, res) => {
+    res.send('boss is sitting');
+})
+
+app.listen(port, () => {
+    console.log(`boss is sitting on port: ${port}`);
+})*/
