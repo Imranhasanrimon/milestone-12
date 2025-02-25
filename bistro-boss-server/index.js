@@ -209,7 +209,6 @@ async function run() {
             const paymentResult = await paymentCollection.insertOne(payment)
 
             //carefully delete each item from the cart
-            console.log('payment info: ', payment);
             const query = {
                 _id: {
                     $in: payment.cartIds.map(id => new ObjectId(id))
@@ -217,6 +216,9 @@ async function run() {
             };
 
             const deleteResult = await cartCollection.deleteMany(query);
+
+            //send user email about payment confirmation--------------
+
             res.send({ paymentResult, deleteResult })
         })
 
